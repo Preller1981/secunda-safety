@@ -34,13 +34,17 @@ app.post("/report", (req, res) => {
     const data = readDB();
 
     const newIncident = {
-        id: Date.now(),
-        type: req.body.type || "Unknown",
-        severity: req.body.severity || "Low",
-        lat: req.body.lat,
-        lng: req.body.lng,
-        time: new Date()
-    };
+    id: Date.now(),
+    type: req.body.type || "Unknown",
+    severity: req.body.severity || "Low",
+    address: req.body.address || "",
+    contact: req.body.contact || "",
+    date: req.body.date || "",
+    time: req.body.time || "",
+    lat: req.body.lat,
+    lng: req.body.lng,
+    createdAt: new Date()
+};
 
     data.push(newIncident);
     saveDB(data);
