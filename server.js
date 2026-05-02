@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
 // ---------------------------
 app.get("/test-db", async (req, res) => {
   const { data, error } = await supabase
-    .from("your_table_name") // <-- change this
+    .from("incidents") // <-- change this
     .select("*");
 
   if (error) {
